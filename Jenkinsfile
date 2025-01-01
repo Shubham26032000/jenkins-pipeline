@@ -10,8 +10,24 @@ pipeline{
         
         stage("run"){
             steps{
-                sh 'java Main'
+                sh "java Main"
             }
         }
     }
+
+    post{
+
+        always {
+            sh 'echo "always"'
+        }
+
+        success{
+            sh 'echo "success"'
+        }
+
+        failure{
+            sh 'echo "failure"'
+        }
+    }
+
 }
